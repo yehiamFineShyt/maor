@@ -29,9 +29,9 @@ export default class CountryClass{
     })
   }
 
-  async Delete(_id){
+  async Delete(){
     try {
-        const response = await fetch(`https://maor.onrender.com/${_id}`, {
+        const response = await fetch(`https://maor.onrender.com/${this.id}`, {
           method: 'DELETE',
         });
     
