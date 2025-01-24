@@ -25,32 +25,23 @@ export default class CountryClass{
     let delBtn = tr.querySelector(".del-btn");
     delBtn.addEventListener("click" , () => {
       // alert(this.id);
-      confirm("Are you sure you want to delete?") && this.delCountry()
+      confirm("Are you sure you want to delete?") && this.Delete();
     })
   }
 
-  async delCountry(){
-    let url = "https://maor.onrender.com/"+this.id;
-    try{
-
-      let resp =  await axios({
-        url,
-        method:"DELETE",
-        headers:{
-          'content-type': "application/json"
+  async Delete(_id){
+    try {
+        const response = await fetch(`https://maor.onrender.com/${_id}`, {
+          method: 'DELETE',
+        });
+    
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      })
-      if(resp.data.deletedCount == 1){
-        // alert("Country deleted")
-        this.doApi();
+    
+        console.log('Resource deleted successfully');
+      } catch (error) {
+        console.error('Error during DELETE:', error);
       }
-      else{
-        alert("There problem")
-      }
-    }
-    catch(err){
-      console.log(err);
-      alert("There problem, come back later")
-    }
-  }
+}
 }
