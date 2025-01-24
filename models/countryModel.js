@@ -12,7 +12,7 @@ const countrySchema = new mongoose.Schema({
     type:Date, default:Date.now()
   },
   // הוספת יוצר הרשומה 
-  user_id:String
+
 })
 
 exports.CountryModel = mongoose.model("countries",countrySchema);
