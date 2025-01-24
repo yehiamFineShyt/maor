@@ -26,6 +26,7 @@ export default class CountryClass{
     delBtn.addEventListener("click" , () => {
       // alert(this.id);
       confirm("Are you sure you want to delete?") && this.Delete();
+      tr.innerHTML = "";
     })
   }
 
