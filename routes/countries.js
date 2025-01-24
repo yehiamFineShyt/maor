@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
     // בהמשך יעזור לנו לזהות שירצה למחוק או לערוך רשומה
     //  tokenData._id; -> מגיע מפונקציית האוט מהטוקן ומכיל את 
     // האיי די של המשתמש
-    country.user_id = req.tokenData._id;
+   
     await country.save();
     res.status(201).json(country)
   }
